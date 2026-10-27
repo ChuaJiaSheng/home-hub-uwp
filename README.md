@@ -27,7 +27,7 @@ The service providers and original endpoints have not been tested for current av
 
 ## Repository preparation
 
-Source and required assets were organised from existing coursework. Build outputs and IDE state are excluded. Original reports, slides and course handouts remain in the separate full backup; they are not bundled for public upload. Real credentials and original database records are not included. See the collection `UPLOAD_GUIDE.md` for upload steps and preparation notes.
+Source and required assets were organised from existing coursework. Build outputs and IDE state are excluded. Original reports, slides and course handouts remain in the separate full backup; they are not bundled for public upload. Real credentials and original database records are not included.
 
 ## Validation status
 
