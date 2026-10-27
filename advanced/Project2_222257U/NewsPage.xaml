@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="Project2_222257U.NewsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Project2_222257U"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    RequestedTheme="Light"
+    mc:Ignorable="d">
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBox
+                    Name="txtSearchBox"
+                    Margin="50,50,50,0"
+                    PlaceholderText="Search news..."
+                    TextChanged="txtSearchBox_TextChanged" />
+                <Button
+                    Name="btnSearch"
+                    Margin="50,15,50,0"
+                    HorizontalAlignment="Center"
+                    Click="btnSearch_Click"
+                    Content="Search" />
+                <ListView
+                    Name="NewsListView"
+                    Margin="10,0,10,10"
+                    ItemClick="OnNewsItemClick">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock
+                                    FontSize="16"
+                                    FontWeight="Bold"
+                                    Text="{Binding TranslatedName}" />
+                                <TextBlock
+                                    FontSize="14"
+                                    Text="{Binding TranslatedDescription}"
+                                    TextWrapping="Wrap" />
+                                <TextBlock
+                                    FontSize="12"
+                                    Foreground="Gray"
+                                    Text="{Binding TranslatedDate}" />
+                                <HyperlinkButton Content="{Binding TranslatedReadFullArticle}" NavigateUri="{Binding Url}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -1,0 +1,290 @@
+﻿<Page
+    x:Class="Project1_222257U.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Project1_222257U"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    RequestedTheme="Light"
+    mc:Ignorable="d">
+
+    <Grid ManipulationDelta="OnSwipe" ManipulationMode="TranslateX, TranslateY">
+        <Image
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            Source="Images\bg1.jpg"
+            Stretch="Fill" />
+
+        <Pivot Padding="20" Visibility="Visible">
+            <PivotItem
+                Padding="10"
+                Header="Clock"
+                Opacity="0.8">
+                <Canvas
+                    Name="mainCanvas"
+                    Canvas.Left="0"
+                    Canvas.Top="0"
+                    Width="Auto"
+                    Height="Auto"
+                    ManipulationDelta="Clock_ManipulationDelta"
+                    ManipulationMode="All">
+                    <Border
+                        Name="clockBorder"
+                        Padding="30"
+                        Background="Gray"
+                        Opacity="0.9">
+                        <StackPanel
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Spacing="20">
+                            <TextBlock
+                                Name="GreetingText"
+                                FontSize="24"
+                                FontWeight="Bold"
+                                Text="Good Morning!"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                Name="Date"
+                                FontSize="20"
+                                Text="Monday, November 20, 2024"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                Name="Time"
+                                FontSize="36"
+                                FontWeight="SemiBold"
+                                Text="08:45 AM"
+                                TextAlignment="Center" />
+                            <TextBlock
+                                Name="WeatherSummary"
+                                FontSize="18"
+                                Text="Sunny, 27°C"
+                                TextAlignment="Center" />
+                        </StackPanel>
+                    </Border>
+                </Canvas>
+            </PivotItem>
+            <PivotItem Header="Alarm">
+                <StackPanel Padding="20" Spacing="20">
+                    <TextBlock
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Text="Set Alarm" />
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <DatePicker Name="AlarmDatePicker" />
+                        <TimePicker Name="AlarmTimePicker" />
+                    </StackPanel>
+
+                    <TextBlock
+                        Margin="0,20,0,10"
+                        FontSize="20"
+                        FontWeight="Bold"
+                        Text="Alarms" />
+                    <Border
+                        Grid.Column="1"
+                        Margin="10"
+                        Padding="10"
+                        Background="Gray"
+                        BorderBrush="Gray"
+                        CornerRadius="10"
+                        Opacity="0.9">
+                        <StackPanel VerticalAlignment="Top">
+                            <TextBlock
+                                Margin="0,0,0,10"
+                                FontSize="20"
+                                FontWeight="Bold"
+                                Text="Scheduled Alarms" />
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock
+                                    Margin="5"
+                                    VerticalAlignment="Center"
+                                    Text="9 November 2024 - 7:00 AM" />
+                                <RadioButton
+                                    Margin="5"
+                                    VerticalAlignment="Center"
+                                    Content="On"
+                                    GroupName="rbAlarm1"
+                                    IsChecked="True" />
+                                <RadioButton
+                                    Margin="5"
+                                    VerticalAlignment="Center"
+                                    Content="Off"
+                                    GroupName="rbAlarm1" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock
+                                    Margin="5"
+                                    VerticalAlignment="Center"
+                                    Text="9 November 2024 - 8:00 AM" />
+                                <RadioButton
+                                    Margin="5"
+                                    VerticalAlignment="Center"
+                                    Content="On"
+                                    GroupName="rbAlarm2"
+                                    IsChecked="True" />
+                                <RadioButton
+                                    Margin="5"
+                                    VerticalAlignment="Center"
+                                    Content="Off"
+                                    GroupName="rbAlarm2" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </PivotItem>
+            <PivotItem Header="Weather">
+                <ScrollViewer>
+                    <StackPanel
+                        Margin="20"
+                        HorizontalAlignment="Stretch"
+                        Orientation="Vertical"
+                        Spacing="20">
+                        <Border
+                            Padding="15"
+                            Background="#FFF8F8F8"
+                            BorderBrush="#FFD0D0D0"
+                            BorderThickness="1"
+                            CornerRadius="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Width="50"
+                                    Height="50"
+                                    VerticalAlignment="Center"
+                                    Source="Images/sunny.png" />
+                                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                                    <TextBlock
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Foreground="#FF444444"
+                                        Text="Monday, December 2" />
+                                    <TextBlock
+                                        FontSize="14"
+                                        Foreground="#FF666666"
+                                        Text="Temperature: 28°C / 20°C" />
+                                    <TextBlock
+                                        FontSize="14"
+                                        Foreground="#FF666666"
+                                        Text="Humidity: 65%" />
+                                    <TextBlock
+                                        FontSize="14"
+                                        Foreground="#FF666666"
+                                        Text="Rain: 10%" />
+                                </StackPanel>
+                                <TextBlock
+                                    Grid.Column="2"
+                                    VerticalAlignment="Center"
+                                    FontSize="24"
+                                    FontWeight="Bold"
+                                    Foreground="#FF3333"
+                                    Text="28°C" />
+                            </Grid>
+                        </Border>
+                        <Border
+                            Padding="15"
+                            Background="#FFF8F8F8"
+                            BorderBrush="#FFD0D0D0"
+                            BorderThickness="1"
+                            CornerRadius="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image
+                                    Width="50"
+                                    Height="50"
+                                    VerticalAlignment="Center"
+                                    Source="Images/cloudy.png" />
+
+                                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                                    <TextBlock
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Foreground="#FF444444"
+                                        Text="Tuesday, December 3" />
+                                    <TextBlock
+                                        FontSize="14"
+                                        Foreground="#FF666666"
+                                        Text="Temperature: 26°C / 18°C" />
+                                    <TextBlock
+                                        FontSize="14"
+                                        Foreground="#FF666666"
+                                        Text="Humidity: 70%" />
+                                    <TextBlock
+                                        FontSize="14"
+                                        Foreground="#FF666666"
+                                        Text="Rain: 20%" />
+                                </StackPanel>
+
+                                <TextBlock
+                                    Grid.Column="2"
+                                    VerticalAlignment="Center"
+                                    FontSize="24"
+                                    FontWeight="Bold"
+                                    Foreground="#FF5555"
+                                    Text="26°C" />
+                            </Grid>
+                        </Border>
+                        <Border
+                            Padding="15"
+                            Background="#FFF8F8F8"
+                            BorderBrush="#FFD0D0D0"
+                            BorderThickness="1"
+                            CornerRadius="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image
+                                    Width="50"
+                                    Height="50"
+                                    VerticalAlignment="Center"
+                                    Source="Images/rainy.png" />
+
+                                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                                    <TextBlock
+                                        FontSize="18"
+                                        FontWeight="Bold"
+                                        Foreground="#FF444444"
+                                        Text="Wednesday, December 4" />
+                                    <TextBlock
+                                        FontSize="14"
+                                        Foreground="#FF666666"
+                                        Text="Temperature: 24°C / 16°C" />
+                                    <TextBlock
+                                        FontSize="14"
+                                        Foreground="#FF666666"
+                                        Text="Humidity: 80%" />
+                                    <TextBlock
+                                        FontSize="14"
+                                        Foreground="#FF666666"
+                                        Text="Rain: 40%" />
+                                </StackPanel>
+
+                                <TextBlock
+                                    Grid.Column="2"
+                                    VerticalAlignment="Center"
+                                    FontSize="24"
+                                    FontWeight="Bold"
+                                    Foreground="#FF7777"
+                                    Text="24°C" />
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </PivotItem>
+        </Pivot>
+    </Grid>
+</Page>
