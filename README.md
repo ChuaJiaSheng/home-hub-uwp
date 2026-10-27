@@ -2,7 +2,7 @@
 
 Two C#/XAML UWP coursework applications that bring clock, alarms, weather, sketching, and chat into a desktop dashboard. The advanced application expands the page set with news and translation.
 
-The versions are preserved as independent solutions. Their shared page structure supports grouping them as a project family; the source trees have not been merged into one application.
+The prototype and advanced version are separate applications with independent solutions.
 
 ## Versions and requirements
 
@@ -25,7 +25,7 @@ Use Windows, Visual Studio with UWP development tools, and the SDK required by t
 | Advanced news | `NewsPage` |
 | Advanced shared settings/theme | `GlobalSettings`, `ThemeManager`, `Alarm` |
 
-Each page's XAML defines its UI; the matching `.xaml.cs` file contains its event handlers and service logic. Service-related pages should be treated as integrations requiring setup, not as verified working online features.
+Each page's XAML defines its UI; the matching `.xaml.cs` file contains its event handlers and service logic. Weather, news, translation, and chat integrations require their corresponding service configuration.
 
 ## Build the prototype
 
@@ -56,9 +56,5 @@ Then open the advanced solution, restore dependencies, and build. The `.csproj` 
 
 - Missing `ApiCredentials.local.cs`: copy the example before building the advanced app.
 - SDK/targeting error: check the version-specific SDK target above rather than treating both solutions as interchangeable.
-- Service error or empty response: inspect that page's endpoint, expected response shape, account configuration, and credentials. Provider availability has not been checked.
+- Service error or empty response: inspect that page's endpoint, expected response shape, account configuration, and credentials. Check whether the configured provider still supports the endpoint.
 - Keep the local credentials file outside Git. Compiled client applications do not provide a secure place to hide reusable service secrets.
-
-## Provenance and verification
-
-Preserved from the supplied `Project1_222257U` and `Project2_222257U` coursework. The course briefs were used to identify the project family; they are not bundled here. Project XML and relative references were inspected during preparation. Neither application has been built or run, and alarm behaviour and live API requests have not been tested here.
